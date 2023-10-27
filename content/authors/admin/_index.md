@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Feng Qian 钱丰
+title: Feng Qian (钱丰)
 
 # Full name (for SEO)
 first_name: Feng
@@ -26,8 +26,8 @@ bio: ''
 
 # Interests to show in About widget
 interests:
-  - Quantum computing and Quantum information
-  - Tensor network method 
+  - Quantum computing
+  - Tensor network
 
 # Education to show in About widget
 education:
@@ -67,5 +67,5 @@ social:
 highlight_name: true
 ---
 
-I am a Ph.D. student in Physics at Tufts University. My research interests include quantum computing, quantum information, tensor network, and their applications in quantum and machine learning.
+I am a Ph.D. student in Physics at Tufts University. My research interests include quantum computing, quantum information, tensor network, and their applications in quantum chemistry and machine learning.
 {style="text-align: justify;"}
