@@ -1,9 +1,6 @@
 ---
 # Display name
-title: Feng Qian（钱丰）
-
-# Name pronunciation (optional)
-name_pronunciation:‘’
+title: Feng Qian 钱丰
 
 # Full name (for SEO)
 first_name: Feng
@@ -31,8 +28,6 @@ bio: ''
 interests:
   - Quantum computing and Quantum information
   - Tensor network method 
-  - Quantum Chemistry
-  - Machine Learning
 
 # Education to show in About widget
 education:
