@@ -11,6 +11,11 @@
 <meta property="og:url" content="{{ canonicalUrl }}"/>
 <meta property="og:image" content="{{ site.url }}/assets/img/portrait.jpg"/>
 {% endif %}
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="{{ title }}"/>
+<meta name="twitter:description" content="{{ description }}"/>
+<meta name="twitter:image" content="{{ site.url }}/assets/img/portrait.jpg"/>
+{% if site.googleVerification %}<meta name="google-site-verification" content="{{ site.googleVerification }}"/>{% endif %}
 <title>{{ title }}</title>
 <script id="tailwind-config">
   tailwind.config = {
