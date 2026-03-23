@@ -32,7 +32,21 @@ bodyClass: "bg-surface font-body selection:bg-primary-container selection:text-o
       <div class="md:col-span-5 relative">
         <div class="aspect-[4/5] rounded-sm overflow-hidden relative">
           <img alt="Feng Qian" class="w-full h-full object-cover" style="filter: sepia(20%) brightness(1.02);" src="/assets/img/portrait.jpg"/>
-          <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, transparent 65%, rgba(252,249,248,0.5) 80%, #fcf9f8 95%);"></div>
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="brush-edge" x="-30%" y="-30%" width="160%" height="160%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="7" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+              <radialGradient id="edge-fade" cx="50%" cy="50%" r="50%">
+                <stop offset="55%" stop-color="#fcf9f8" stop-opacity="0"/>
+                <stop offset="75%" stop-color="#fcf9f8" stop-opacity="0.65"/>
+                <stop offset="88%" stop-color="#fcf9f8" stop-opacity="0.95"/>
+                <stop offset="100%" stop-color="#fcf9f8" stop-opacity="1"/>
+              </radialGradient>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#edge-fade)" filter="url(#brush-edge)"/>
+          </svg>
         </div>
         <div class="absolute -bottom-6 -left-6 w-32 h-32 border-l border-b border-primary/20 pointer-events-none"></div>
       </div>
