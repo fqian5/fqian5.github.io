@@ -1,0 +1,53 @@
+---
+layout: base.njk
+title: "Blog | Feng"
+description: "Physics deep-dives, coding experiments, and reflections on the intersections of art and literature."
+canonicalUrl: "https://fqian5.github.io/blog/"
+bodyClass: "font-body text-on-surface selection:bg-secondary-container"
+---
+<div class="dust-mote" style="top: 10%; left: 20%;"></div>
+<div class="dust-mote" style="top: 40%; left: 80%;"></div>
+<div class="dust-mote" style="top: 70%; left: 15%;"></div>
+<div class="dust-mote" style="top: 25%; left: 50%;"></div>
+<div class="dust-mote" style="top: 85%; left: 60%;"></div>
+
+<main class="relative z-10 max-w-4xl mx-auto px-8">
+  <div class="pt-24 pb-16">
+    <h1 class="font-headline text-5xl md:text-7xl text-[#2B2B2B] tracking-tight mb-4 -ml-1">Blog</h1>
+    <p class="font-body text-lg text-secondary max-w-lg leading-relaxed">
+      Physics deep-dives, coding experiments, and reflections on the intersections of art and literature.
+    </p>
+  </div>
+
+  <div class="flex flex-wrap gap-3 mb-12">
+    <span class="px-4 py-1.5 bg-secondary-container text-on-secondary-container text-xs font-medium rounded-full">All Entries</span>
+    <span class="px-4 py-1.5 bg-surface-container text-on-surface-variant text-xs font-medium rounded-full hover:bg-secondary-container transition-colors cursor-pointer">Physics</span>
+    <span class="px-4 py-1.5 bg-surface-container text-on-surface-variant text-xs font-medium rounded-full hover:bg-secondary-container transition-colors cursor-pointer">Computational</span>
+    <span class="px-4 py-1.5 bg-surface-container text-on-surface-variant text-xs font-medium rounded-full hover:bg-secondary-container transition-colors cursor-pointer">Philosophy</span>
+  </div>
+
+  <section class="space-y-1 w-full">
+    {% for post in collections.posts %}
+    <article class="group relative py-11 transition-all duration-300 hover:bg-surface-container-low px-4 -mx-4 rounded-lg">
+      <a href="{{ post.url }}" class="block">
+        <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8">
+          <time class="text-xs font-label tracking-widest text-on-surface-variant opacity-60 uppercase shrink-0 w-32">{{ post.date | dateString }}</time>
+          <div class="flex-grow">
+            <h2 class="font-headline text-2xl md:text-3xl text-[#2B2B2B] group-hover:text-primary transition-colors mb-3">{{ post.data.title }}</h2>
+            <p class="font-body text-on-surface-variant leading-relaxed max-w-2xl">{{ post.data.description }}</p>
+          </div>
+        </div>
+      </a>
+    </article>
+    {% else %}
+    <p class="text-on-surface-variant py-12">No posts yet — check back soon.</p>
+    {% endfor %}
+  </section>
+
+  <div class="mt-24 mb-32 flex justify-center">
+    <button class="font-label text-sm text-secondary hover:text-primary flex items-center gap-2 group transition-colors">
+      View Older Thoughts
+      <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+    </button>
+  </div>
+</main>

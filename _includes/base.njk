@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+{% if description %}<meta name="description" content="{{ description }}"/>{% endif %}
+{% if canonicalUrl %}<link rel="canonical" href="{{ canonicalUrl }}"/>
+<meta property="og:title" content="{{ title }}"/>
+<meta property="og:description" content="{{ description }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="{{ canonicalUrl }}"/>
+<meta property="og:image" content="{{ site.url }}/assets/img/portrait.jpg"/>
+{% endif %}
+<title>{{ title }}</title>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "error": "#ba1a1a",
+          "surface-tint": "#96454c",
+          "tertiary-fixed-dim": "#ecbf8a",
+          "on-secondary-fixed-variant": "#264c52",
+          "on-secondary-fixed": "#001f24",
+          "on-error-container": "#93000a",
+          "secondary-container": "#bfe7ee",
+          "surface-bright": "#fcf9f8",
+          "on-surface": "#1b1c1c",
+          "inverse-on-surface": "#f3f0f0",
+          "secondary-fixed": "#c2e9f1",
+          "on-surface-variant": "#544243",
+          "tertiary-fixed": "#ffddb8",
+          "surface-variant": "#e4e2e1",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-container": "#ffeddc",
+          "on-primary-container": "#ffebeb",
+          "on-primary-fixed": "#3e030e",
+          "surface-container-high": "#eae7e7",
+          "on-tertiary": "#ffffff",
+          "tertiary": "#6f4e23",
+          "on-background": "#1b1c1c",
+          "background": "#fcf9f8",
+          "surface": "#fcf9f8",
+          "inverse-surface": "#303030",
+          "secondary-fixed-dim": "#a6cdd5",
+          "on-secondary": "#ffffff",
+          "surface-dim": "#dcd9d9",
+          "on-tertiary-fixed": "#2a1700",
+          "secondary": "#3f646b",
+          "on-primary": "#ffffff",
+          "tertiary-container": "#8a6639",
+          "on-error": "#ffffff",
+          "primary-container": "#a7535a",
+          "on-secondary-container": "#43686f",
+          "outline": "#877273",
+          "surface-container": "#f0eded",
+          "primary": "#893c43",
+          "surface-container-low": "#f6f3f2",
+          "error-container": "#ffdad6",
+          "on-primary-fixed-variant": "#782e36",
+          "inverse-primary": "#ffb2b6",
+          "surface-container-highest": "#e4e2e1",
+          "outline-variant": "#d9c1c1",
+          "primary-fixed-dim": "#ffb2b6",
+          "primary-fixed": "#ffdada",
+          "on-tertiary-fixed-variant": "#5f4017"
+        },
+        fontFamily: {
+          "headline": ["Noto Serif"],
+          "body": ["Inter"],
+          "label": ["Inter"]
+        },
+        borderRadius: {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        typography: {
+          DEFAULT: {
+            css: {
+              color: "#2b2b2b",
+              a: { color: "#893c43", textDecoration: "none", "&:hover": { textDecoration: "underline" } },
+              "h1,h2,h3,h4": { color: "#2b2b2b", fontFamily: "'Noto Serif', serif" },
+              code: { color: "#893c43", backgroundColor: "#f6f3f2", padding: "0.1em 0.3em", borderRadius: "0.25rem" },
+              "code::before": { content: '""' },
+              "code::after": { content: '""' },
+              pre: { backgroundColor: "#f0eded" },
+            }
+          }
+        }
+      },
+    },
+  }
+</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+{% if useMath %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"/>
+{% endif %}
+<style>
+  body { background-color: #fcf9f8; color: #1b1c1c; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+  .serif-title { font-family: 'Noto Serif', serif; }
+  .sans-body { font-family: 'Inter', sans-serif; }
+  .dust-mote {
+    position: fixed;
+    width: 2px; height: 2px;
+    background: #2B2B2B;
+    opacity: 0.08;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .xuan-paper-texture {
+    background-color: #F9F6F0;
+    background-image: radial-gradient(#2B2B2B 0.5px, transparent 0.5px);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+    opacity: 0.03;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #d9c1c1; border-radius: 10px; }
+</style>
+</head>
+<body class="{{ bodyClass | default('bg-surface font-body') }}">
+
+{% set isHome = page.url == '/' %}
+{% set isBlog = page.url | startsWith('/blog/') %}
+{% set isResearch = page.url | startsWith('/research/') %}
+
+<!-- Navigation -->
+<header class="sticky top-0 w-full z-50 bg-[#FCF9F8]/70 backdrop-blur-md transition-colors duration-300 shadow-none">
+  <nav class="max-w-7xl mx-auto flex justify-between items-center px-8 py-6">
+    <a class="text-2xl font-serif italic text-[#2B2B2B]" href="/">Feng</a>
+    <div class="hidden md:flex items-center gap-12">
+      <a class="{{ 'text-[#893C43] font-semibold border-b-2 border-[#893C43] pb-1' if isHome else 'text-[#2B2B2B]/70 hover:text-[#893C43]' }} transition-all" href="/">Home</a>
+      <a class="{{ 'text-[#893C43] font-semibold border-b-2 border-[#893C43] pb-1' if isResearch else 'text-[#2B2B2B]/70 hover:text-[#893C43]' }} transition-all" href="/research/">Research</a>
+      <a class="{{ 'text-[#893C43] font-semibold border-b-2 border-[#893C43] pb-1' if isBlog else 'text-[#2B2B2B]/70 hover:text-[#893C43]' }} transition-all" href="/blog/">Blog</a>
+    </div>
+    <div class="flex items-center gap-6">
+      <a href="{{ site.cvUrl }}" target="_blank" rel="noopener" class="bg-primary text-on-primary px-5 py-2 rounded-lg font-medium hover:opacity-90 transition-all active:opacity-80 active:scale-95">
+        CV
+      </a>
+      <button class="md:hidden text-on-surface" aria-label="Open navigation menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile drawer -->
+<div id="mobile-menu" class="hidden md:hidden bg-[#FCF9F8]/95 backdrop-blur-md border-t border-outline-variant/10 px-8 py-6 space-y-4 sticky top-[73px] z-40">
+  <a class="{{ 'text-[#893C43] font-semibold' if isHome else 'text-[#2B2B2B]/70 hover:text-[#893C43]' }} block py-1 transition-colors" href="/">Home</a>
+  <a class="{{ 'text-[#893C43] font-semibold' if isResearch else 'text-[#2B2B2B]/70 hover:text-[#893C43]' }} block py-1 transition-colors" href="/research/">Research</a>
+  <a class="{{ 'text-[#893C43] font-semibold' if isBlog else 'text-[#2B2B2B]/70 hover:text-[#893C43]' }} block py-1 transition-colors" href="/blog/">Blog</a>
+  <a href="{{ site.cvUrl }}" target="_blank" rel="noopener" class="inline-block bg-[#893C43] text-white px-5 py-2 rounded-lg text-sm font-medium mt-2">CV</a>
+</div>
+
+{{ content | safe }}
+
+<!-- Footer -->
+<footer class="w-full py-12 mt-24 bg-[#F6F3F2]">
+  <div class="max-w-4xl mx-auto flex flex-col items-center gap-6 text-center">
+    <div class="flex gap-8">
+      <a class="font-sans text-sm tracking-wide text-[#2B2B2B]/60 hover:text-[#893C43] underline underline-offset-4 transition-all duration-300" href="mailto:{{ site.email }}">Email</a>
+      <a class="font-sans text-sm tracking-wide text-[#2B2B2B]/60 hover:text-[#893C43] underline underline-offset-4 transition-all duration-300" href="{{ site.scholar }}">Google Scholar</a>
+      <a class="font-sans text-sm tracking-wide text-[#2B2B2B]/60 hover:text-[#893C43] underline underline-offset-4 transition-all duration-300" href="{{ site.github }}">GitHub</a>
+    </div>
+    <p class="font-sans text-sm tracking-wide text-[#2B2B2B]/60">© <span id="yr"></span> Feng. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.querySelector('button.md\\:hidden').addEventListener('click', function () {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+</script>
+</body>
+</html>
