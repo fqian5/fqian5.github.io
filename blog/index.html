@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Blog by Feng Wei-Jun — physics deep-dives, coding experiments, and reflections on art and literature."/>
+<link rel="canonical" href="https://fqian5.github.io/blog/"/>
+<meta property="og:title" content="Blog | Feng - Physics &amp; Philosophy"/>
+<meta property="og:description" content="Physics deep-dives, coding experiments, and reflections on the intersections of art and literature."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://fqian5.github.io/blog/"/>
+<meta property="og:image" content="https://fqian5.github.io/assets/img/portrait.jpg"/>
+<title>Blog | Feng - Physics &amp; Philosophy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "error": "#ba1a1a",
+          "surface-tint": "#96454c",
+          "tertiary-fixed-dim": "#ecbf8a",
+          "on-secondary-fixed-variant": "#264c52",
+          "on-secondary-fixed": "#001f24",
+          "on-error-container": "#93000a",
+          "secondary-container": "#bfe7ee",
+          "surface-bright": "#fcf9f8",
+          "on-surface": "#1b1c1c",
+          "inverse-on-surface": "#f3f0f0",
+          "secondary-fixed": "#c2e9f1",
+          "on-surface-variant": "#544243",
+          "tertiary-fixed": "#ffddb8",
+          "surface-variant": "#e4e2e1",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-container": "#ffeddc",
+          "on-primary-container": "#ffebeb",
+          "on-primary-fixed": "#3e030e",
+          "surface-container-high": "#eae7e7",
+          "on-tertiary": "#ffffff",
+          "tertiary": "#6f4e23",
+          "on-background": "#1b1c1c",
+          "background": "#fcf9f8",
+          "surface": "#fcf9f8",
+          "inverse-surface": "#303030",
+          "secondary-fixed-dim": "#a6cdd5",
+          "on-secondary": "#ffffff",
+          "surface-dim": "#dcd9d9",
+          "on-tertiary-fixed": "#2a1700",
+          "secondary": "#3f646b",
+          "on-primary": "#ffffff",
+          "tertiary-container": "#8a6639",
+          "on-error": "#ffffff",
+          "primary-container": "#a7535a",
+          "on-secondary-container": "#43686f",
+          "outline": "#877273",
+          "surface-container": "#f0eded",
+          "primary": "#893c43",
+          "surface-container-low": "#f6f3f2",
+          "error-container": "#ffdad6",
+          "on-primary-fixed-variant": "#782e36",
+          "inverse-primary": "#ffb2b6",
+          "surface-container-highest": "#e4e2e1",
+          "outline-variant": "#d9c1c1",
+          "primary-fixed-dim": "#ffb2b6",
+          "primary-fixed": "#ffdada",
+          "on-tertiary-fixed-variant": "#5f4017"
+        },
+        fontFamily: {
+          "headline": ["Noto Serif"],
+          "body": ["Inter"],
+          "label": ["Inter"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  body {
+    background-color: #F9F6F0;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .dust-mote {
+    position: fixed;
+    width: 2px; height: 2px;
+    background: #1b1c1c;
+    opacity: 0.08;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #d9c1c1; border-radius: 10px; }
+</style>
+</head>
+<body class="font-body text-on-surface selection:bg-secondary-container">
+<!-- Dust Motes (Visual Decoration) -->
+<div class="dust-mote" style="top: 10%; left: 20%;"></div>
+<div class="dust-mote" style="top: 40%; left: 80%;"></div>
+<div class="dust-mote" style="top: 70%; left: 15%;"></div>
+<div class="dust-mote" style="top: 25%; left: 50%;"></div>
+<div class="dust-mote" style="top: 85%; left: 60%;"></div>
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 w-full z-50 bg-[#FCF9F8]/70 backdrop-blur-md transition-colors duration-300">
+  <nav class="max-w-7xl mx-auto flex justify-between items-center px-8 py-6">
+    <a class="text-2xl font-serif italic text-[#2B2B2B]" href="/">Feng</a>
+    <div class="hidden md:flex items-center gap-10">
+      <a class="font-sans text-sm tracking-wide text-[#2B2B2B]/70 hover:text-[#893C43] transition-colors" href="/">Home</a>
+      <a class="font-sans text-sm tracking-wide text-[#2B2B2B]/70 hover:text-[#893C43] transition-colors" href="/research/">Research</a>
+      <a class="font-sans text-sm tracking-wide text-[#893C43] font-semibold border-b-2 border-[#893C43] pb-1" href="/blog/">Blog</a>
+      <a href="/assets/cv.pdf" target="_blank" rel="noopener" class="bg-[#893C43] text-white px-6 py-2 rounded-lg font-sans text-sm tracking-tight active:opacity-80 active:scale-95 transition-transform">CV</a>
+    </div>
+    <button class="md:hidden text-on-surface" aria-label="Open navigation menu">
+      <span class="material-symbols-outlined" data-icon="menu">menu</span>
+    </button>
+  </nav>
+</header>
+<!-- Mobile drawer -->
+<div id="mobile-menu" class="hidden md:hidden bg-[#FCF9F8]/95 backdrop-blur-md border-t border-outline-variant/10 px-8 py-6 space-y-4 sticky top-[73px] z-40">
+  <a class="block text-[#2B2B2B]/70 hover:text-[#893C43] transition-colors py-1" href="/">Home</a>
+  <a class="block text-[#2B2B2B]/70 hover:text-[#893C43] transition-colors py-1" href="/research/">Research</a>
+  <a class="block text-[#893C43] font-semibold py-1" href="/blog/">Blog</a>
+  <a href="/assets/cv.pdf" target="_blank" rel="noopener" class="inline-block bg-[#893C43] text-white px-5 py-2 rounded-lg text-sm font-medium mt-2">CV</a>
+</div>
+<script>
+  document.querySelector('button.md\\:hidden').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+</script>
+<main class="relative z-10 max-w-4xl mx-auto px-8">
+  <!-- Hero / Section Title -->
+  <div class="pt-24 pb-16">
+    <h1 class="font-headline text-5xl md:text-7xl text-[#2B2B2B] tracking-tight mb-4 -ml-1">Blog</h1>
+    <p class="font-body text-lg text-secondary max-w-lg leading-relaxed">
+      Physics deep-dives, coding experiments, and reflections on the intersections of art and literature.
+    </p>
+  </div>
+  <!-- Category Filter Chips -->
+  <div class="flex flex-wrap gap-3 mb-12">
+    <span class="px-4 py-1.5 bg-secondary-container text-on-secondary-container text-xs font-medium rounded-full">All Entries</span>
+    <span class="px-4 py-1.5 bg-surface-container text-on-surface-variant text-xs font-medium rounded-full hover:bg-secondary-container transition-colors cursor-pointer">Physics</span>
+    <span class="px-4 py-1.5 bg-surface-container text-on-surface-variant text-xs font-medium rounded-full hover:bg-secondary-container transition-colors cursor-pointer">Computational</span>
+    <span class="px-4 py-1.5 bg-surface-container text-on-surface-variant text-xs font-medium rounded-full hover:bg-secondary-container transition-colors cursor-pointer">Philosophy</span>
+  </div>
+  <!-- Blog List Container -->
+  <section class="space-y-1 w-full">
+    <!-- Blog Entry 1 -->
+    <article class="group relative py-11 transition-all duration-300 hover:bg-surface-container-low px-4 -mx-4">
+      <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8">
+        <time class="text-xs font-label tracking-widest text-on-surface-variant opacity-60 uppercase shrink-0 w-32">Oct 24, 2023</time>
+        <div class="flex-grow">
+          <h2 class="font-headline text-2xl md:text-3xl text-[#2B2B2B] group-hover:text-primary transition-colors mb-3">The Geometry of Quantum Entanglement</h2>
+          <p class="font-body text-on-surface-variant leading-relaxed max-w-2xl">A geometric interpretation of EPR pairs through the lens of differential topology.</p>
+        </div>
+      </div>
+    </article>
+    <!-- Blog Entry 2 -->
+    <article class="group relative py-11 transition-all duration-300 hover:bg-surface-container-low px-4 -mx-4">
+      <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8">
+        <time class="text-xs font-label tracking-widest text-on-surface-variant opacity-60 uppercase shrink-0 w-32">Sep 12, 2023</time>
+        <div class="flex-grow">
+          <h2 class="font-headline text-2xl md:text-3xl text-[#2B2B2B] group-hover:text-primary transition-colors mb-3">Rust for High-Performance Lattice QCD</h2>
+          <p class="font-body text-on-surface-variant leading-relaxed max-w-2xl">Evaluating memory safety and zero-cost abstractions in large-scale physics simulations.</p>
+        </div>
+      </div>
+    </article>
+    <!-- Blog Entry 3 -->
+    <article class="group relative py-11 transition-all duration-300 hover:bg-surface-container-low px-4 -mx-4">
+      <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8">
+        <time class="text-xs font-label tracking-widest text-on-surface-variant opacity-60 uppercase shrink-0 w-32">Aug 05, 2023</time>
+        <div class="flex-grow">
+          <h2 class="font-headline text-2xl md:text-3xl text-[#2B2B2B] group-hover:text-primary transition-colors mb-3">On Calvino's Six Memos and the Nature of Mass</h2>
+          <p class="font-body text-on-surface-variant leading-relaxed max-w-2xl">Exploring the literary concept of 'Lightness' as a metaphor for elementary particle behavior.</p>
+        </div>
+      </div>
+    </article>
+    <!-- Blog Entry 4 -->
+    <article class="group relative py-11 transition-all duration-300 hover:bg-surface-container-low px-4 -mx-4">
+      <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8">
+        <time class="text-xs font-label tracking-widest text-on-surface-variant opacity-60 uppercase shrink-0 w-32">Jun 28, 2023</time>
+        <div class="flex-grow">
+          <h2 class="font-headline text-2xl md:text-3xl text-[#2B2B2B] group-hover:text-primary transition-colors mb-3">Numerical Stability in Symplectic Integrators</h2>
+          <p class="font-body text-on-surface-variant leading-relaxed max-w-2xl">Why preserving the symplectic form is critical for long-term orbital mechanics modeling.</p>
+        </div>
+      </div>
+    </article>
+    <!-- Blog Entry 5 -->
+    <article class="group relative py-11 transition-all duration-300 hover:bg-surface-container-low px-4 -mx-4">
+      <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8">
+        <time class="text-xs font-label tracking-widest text-on-surface-variant opacity-60 uppercase shrink-0 w-32">May 14, 2023</time>
+        <div class="flex-grow">
+          <h2 class="font-headline text-2xl md:text-3xl text-[#2B2B2B] group-hover:text-primary transition-colors mb-3">The Aesthetics of Sparse Matrices</h2>
+          <p class="font-body text-on-surface-variant leading-relaxed max-w-2xl">Visualizing the patterns found in large-scale computational fluid dynamics datasets.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+  <!-- Pagination -->
+  <div class="mt-24 mb-32 flex justify-center">
+    <button class="font-label text-sm text-secondary hover:text-primary flex items-center gap-2 group transition-colors">
+      View Older Thoughts
+      <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+    </button>
+  </div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 mt-24 bg-[#F6F3F2] dark:bg-stone-950">
+  <div class="max-w-4xl mx-auto flex flex-col items-center gap-6 text-center">
+    <div class="flex gap-8">
+      <a class="font-sans text-sm tracking-wide text-[#2B2B2B]/60 hover:text-[#893C43] underline underline-offset-4 transition-all duration-300" href="mailto:PLACEHOLDER@email.com">Email</a>
+      <a class="font-sans text-sm tracking-wide text-[#2B2B2B]/60 hover:text-[#893C43] underline underline-offset-4 transition-all duration-300" href="https://scholar.google.com/citations?user=PLACEHOLDER">Google Scholar</a>
+      <a class="font-sans text-sm tracking-wide text-[#2B2B2B]/60 hover:text-[#893C43] underline underline-offset-4 transition-all duration-300" href="https://github.com/fqian5">GitHub</a>
+    </div>
+    <p class="font-sans text-xs tracking-wide text-[#2B2B2B]/60">© <span id="yr"></span> Feng. All rights reserved.</p>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

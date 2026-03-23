@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>404 | Feng</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "secondary-container": "#bfe7ee", "on-surface": "#1b1c1c", "on-surface-variant": "#544243",
+          "surface-container-lowest": "#ffffff", "on-primary-container": "#ffebeb",
+          "surface-container-high": "#eae7e7", "on-background": "#1b1c1c",
+          "background": "#fcf9f8", "surface": "#fcf9f8", "on-secondary": "#ffffff",
+          "secondary": "#3f646b", "on-primary": "#ffffff", "primary-container": "#a7535a",
+          "on-secondary-container": "#43686f", "outline": "#877273", "surface-container": "#f0eded",
+          "primary": "#893c43", "surface-container-low": "#f6f3f2",
+          "outline-variant": "#d9c1c1",
+        },
+        fontFamily: { "headline": ["Noto Serif"], "body": ["Inter"] },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  body { background-color: #fcf9f8; color: #1b1c1c; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="bg-surface font-body">
+<header class="sticky top-0 w-full z-50 bg-[#FCF9F8]/70 backdrop-blur-md shadow-none">
+  <nav class="max-w-7xl mx-auto flex justify-between items-center px-8 py-6">
+    <a class="text-2xl font-serif italic text-[#2B2B2B]" href="/">Feng</a>
+    <div class="hidden md:flex items-center gap-12">
+      <a class="text-[#2B2B2B]/70 hover:text-[#893C43] transition-colors" href="/">Home</a>
+      <a class="text-[#2B2B2B]/70 hover:text-[#893C43] transition-colors" href="/research/">Research</a>
+      <a class="text-[#2B2B2B]/70 hover:text-[#893C43] transition-colors" href="/blog/">Blog</a>
+    </div>
+    <a href="/assets/cv.pdf" target="_blank" rel="noopener" class="bg-primary text-on-primary px-5 py-2 rounded-lg font-medium hover:opacity-90 transition-all active:opacity-80">CV</a>
+  </nav>
+</header>
+<main class="max-w-4xl mx-auto px-8 min-h-[60vh] flex flex-col items-center justify-center text-center py-32">
+  <p class="text-xs font-mono tracking-widest text-secondary uppercase mb-6">Error</p>
+  <h1 class="font-headline text-8xl md:text-[12rem] text-[#2B2B2B] leading-none tracking-tighter mb-6">404</h1>
+  <p class="text-xl text-[#2B2B2B]/60 max-w-md leading-relaxed mb-12">
+    This page seems to have tunneled away into the quantum foam.
+  </p>
+  <a href="/" class="group inline-flex items-center gap-2 text-primary font-medium underline underline-offset-8 decoration-1 hover:decoration-2 transition-all">
+    <span class="material-symbols-outlined text-xl group-hover:-translate-x-1 transition-transform">arrow_back</span>
+    Return to Home
+  </a>
+</main>
+<footer class="w-full py-12 bg-[#F6F3F2]">
+  <div class="max-w-4xl mx-auto flex flex-col items-center gap-6 text-center">
+    <div class="flex gap-8">
+      <a class="font-sans text-sm tracking-wide text-[#2B2B2B]/60 hover:text-[#893C43] underline underline-offset-4 transition-all duration-300" href="mailto:PLACEHOLDER@email.com">Email</a>
+      <a class="font-sans text-sm tracking-wide text-[#2B2B2B]/60 hover:text-[#893C43] underline underline-offset-4 transition-all duration-300" href="https://scholar.google.com/citations?user=PLACEHOLDER">Google Scholar</a>
+      <a class="font-sans text-sm tracking-wide text-[#2B2B2B]/60 hover:text-[#893C43] underline underline-offset-4 transition-all duration-300" href="https://github.com/fqian5">GitHub</a>
+    </div>
+    <p class="font-sans text-xs tracking-wide text-[#2B2B2B]/60">© <span id="yr"></span> Feng. All rights reserved.</p>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
