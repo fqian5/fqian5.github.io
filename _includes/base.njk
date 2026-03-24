@@ -136,9 +136,24 @@
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: #d9c1c1; border-radius: 10px; }
+  #cursor-glow {
+    position: fixed;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(137,60,67,0.10) 0%, rgba(137,60,67,0.04) 40%, transparent 70%);
+    mix-blend-mode: multiply;
+    transition: opacity 0.4s ease;
+    opacity: 0;
+  }
+  @media (hover: none) { #cursor-glow { display: none; } }
 </style>
 </head>
 <body class="{{ bodyClass | default('bg-surface font-body') }}">
+<div id="cursor-glow" aria-hidden="true"></div>
 
 {% set isHome = page.url == '/' %}
 {% set isBlog = page.url | startsWith('/blog/') %}
@@ -191,6 +206,26 @@
   document.querySelector('button.md\\:hidden').addEventListener('click', function () {
     document.getElementById('mobile-menu').classList.toggle('hidden');
   });
+  (function () {
+    var glow = document.getElementById('cursor-glow');
+    var mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    var cx = mx, cy = my;
+    var visible = false;
+    document.addEventListener('mousemove', function (e) {
+      mx = e.clientX; my = e.clientY;
+      if (!visible) { glow.style.opacity = '1'; visible = true; }
+    });
+    document.addEventListener('mouseleave', function () {
+      glow.style.opacity = '0'; visible = false;
+    });
+    (function animate() {
+      cx += (mx - cx) * 0.08;
+      cy += (my - cy) * 0.08;
+      glow.style.left = cx + 'px';
+      glow.style.top  = cy + 'px';
+      requestAnimationFrame(animate);
+    })();
+  })();
 </script>
 </body>
 </html>
